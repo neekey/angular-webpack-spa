@@ -1,0 +1,1 @@
+webpackJsonp([1],{6:function(e,n,t){"use strict";function o(e){return e&&e.__esModule?e:{"default":e}}var r=t(1),u=o(r);u["default"].controller("dashboardCtrl",function(e){e.name="neekey"})}});

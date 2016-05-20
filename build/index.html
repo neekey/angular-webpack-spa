@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <base href="/">
+    <script src="http://localhost:8080/webpack-dev-server.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="app">
+
+<ul class="menu">
+    <li><a ui-sref="home">home</a></li>
+    <li><a ui-sref="dashboard">dashboard</a></li>
+    <li><a ui-sref="profile">profile</a></li>
+    <li><a ui-sref="not-found">Not Found</a></li>
+</ul>
+<div class="main" ui-view>
+
+</div>
+
+</body>
+</html>
