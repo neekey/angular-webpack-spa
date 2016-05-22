@@ -39,6 +39,7 @@ module.exports = {
     },
     resolve: {
         alias: {
+            //'angular': pathToAngular
             //'ui-router-extras': pathToUIRouterExtra
         }
     },

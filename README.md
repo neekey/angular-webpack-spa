@@ -14,3 +14,11 @@ development
 ```
 npm run dev
 ```
+
+### Compatibility
+
+- IE9+
+- Chrome
+- Safari
+- Firefox
+

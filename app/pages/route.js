@@ -17,11 +17,6 @@ module.config(function ( $futureStateProvider, $locationProvider, $urlRouterProv
             stateName: 'home',
             url: '/',
             type: 'asyncState'
-        },
-        {
-            stateName: 'home',
-            url: '*',
-            type: 'asyncState'
         }
     ];
 
@@ -47,7 +42,6 @@ module.config(function ( $futureStateProvider, $locationProvider, $urlRouterProv
         }
 
         function moduleResulve( module ){
-            debugger;
             var state = {
                 name: futureState.stateName,
                 url: futureState.url,
