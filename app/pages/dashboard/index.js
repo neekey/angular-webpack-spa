@@ -7,7 +7,7 @@ import './style.scss';
 
 module.registerController( 'dashboardCtrl', function( $scope ){
     "ngInject";
-    $scope.name = 'neekey';
+    $scope.name = 'Neekey';
 });
 
 export var template = html;

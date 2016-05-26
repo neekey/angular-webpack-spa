@@ -14,7 +14,7 @@ var BUILD_DIR = path.resolve( __dirname, '../build' );
 var PLUGINS = [];
 var PAGE_ENTRIES = {
     'app': path.resolve(__dirname, '../app/app.js'),
-    'vender': [
+    'vendor': [
         'jQuery',
         'lodash',
         'angular',
@@ -26,9 +26,10 @@ var PAGE_ENTRIES = {
 
 if( ENV == 'development' ){
     PAGE_ENTRIES[ 'webpack-dev-server' ] = 'webpack/hot/dev-server';
+    PAGE_ENTRIES[ 'test-launcher' ] = path.resolve(__dirname, '../app/test-launcher.js')
 }
 
-PLUGINS.push( new webpack.optimize.CommonsChunkPlugin( 'vender', 'vender.js' ) );
+PLUGINS.push( new webpack.optimize.CommonsChunkPlugin( 'vendor', 'vendor.js' ) );
 
 if( ENV == 'production' ){
     PLUGINS.push(new webpack.optimize.UglifyJsPlugin({
