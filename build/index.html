@@ -2,8 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <base href="/">
-    <script src="http://localhost:8080/webpack-dev-server.js"></script>
+    <script>
+        document.write( '<base href="' + location.pathname + '">' );
+    </script>
+    <!--<base href="/angular_webpack_spa_redux/build/">-->
+    <!--<script src="http://localhost:8080/webpack-dev-server.js"></script>-->
+    <script src="vender.js"></script>
     <script src="app.js"></script>
 </head>
 <body ng-app="app">
@@ -12,7 +16,7 @@
     <li><a ui-sref="home">home</a></li>
     <li><a ui-sref="dashboard">dashboard</a></li>
     <li><a ui-sref="profile">profile</a></li>
-    <li><a ui-sref="not-found">Not Found</a></li>
+    <!--<li><a ui-sref="not-found">Not Found</a></li>-->
 </ul>
 <div class="main" ui-view>
 

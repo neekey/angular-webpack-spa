@@ -22,3 +22,10 @@ npm run dev
 - Safari
 - Firefox
 
+
+/* 数据接口平台: */
+font-family: FZLTZHK--GBK1-0;
+font-size: 36px;
+color: #FFFFFF;
+line-height: 50px;
+

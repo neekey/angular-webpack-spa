@@ -12,18 +12,27 @@ var pathToUIRouterExtra = path.resolve( nodeModules, 'ui-router-extras/release/m
 var BUILD_DIR = path.resolve( __dirname, '../build' );
 var PLUGINS = [];
 var PAGE_ENTRIES = {
-    'app': path.resolve(__dirname, '../app/app.js')
+    'app': path.resolve(__dirname, '../app/app.js'),
+    'vender': [
+        'jQuery',
+        'lodash',
+        'angular',
+        'angular-resource',
+        'angular-ui-router',
+        'ui-router-extras'
+    ]
 };
 
 if( ENV == 'development' ){
     PAGE_ENTRIES[ 'webpack-dev-server' ] = 'webpack/hot/dev-server';
 }
 
-//PLUGINS.push( new webpack.optimize.CommonsChunkPlugin( 'common.js' ) );
+PLUGINS.push( new webpack.optimize.CommonsChunkPlugin( 'vender', 'vender.js' ) );
 
 if( ENV == 'production' ){
     PLUGINS.push(new webpack.optimize.UglifyJsPlugin({
         compress: {
+            warnings: false
         },
         output: {
             comments: false
@@ -59,13 +68,13 @@ module.exports = {
                 loader: 'html'
             },
             {
+                test: /\.(png|jpg)$/,
+                loader: 'url-loader?limit=1024&name=[name]-[hash:8].[ext]!image-webpack'
+            },
+            {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel', // 'babel-loader' is also a legal name to reference
-                query: {
-                    // this enables ES6 syntax
-                    presets: ['es2015']
-                }
+                loader: 'ng-annotate!babel?presets=es2015' // 'babel-loader' is also a legal name to reference
             }
         ],
         //noParse: [ pathToAngular ]
@@ -76,5 +85,12 @@ module.exports = {
     //},
     sassLoader: {
         includePaths: [ bourbon.includePaths, bourbonNeat.includePaths ]
+    },
+
+    imageWebpackLoader: {
+        pngquant:{
+            quality: "65-90",
+            speed: 4
+        }
     }
 };

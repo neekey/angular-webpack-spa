@@ -13,6 +13,8 @@ var module = angular.module( 'app', [
 couchPotato.configureApp( module );
 
 module.run([ '$couchPotato', function( $couchPotato ){
+    "ngInject";
+
     module.lazy = $couchPotato; //note that you need to use the name 'lazy'
 }]);
 

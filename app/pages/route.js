@@ -1,6 +1,7 @@
 import module from './module';
 
 module.config(function ( $futureStateProvider, $locationProvider, $urlRouterProvider ) {
+    "ngInject";
 
     var futureStates = [
         {
@@ -26,6 +27,7 @@ module.config(function ( $futureStateProvider, $locationProvider, $urlRouterProv
 
 
     $futureStateProvider.stateFactory( 'asyncState', function( $q, futureState ){
+        "ngInject";
 
         var d = $q.defer();
 
