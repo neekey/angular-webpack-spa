@@ -76,13 +76,9 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 loader: 'ng-annotate!babel?presets=es2015' // 'babel-loader' is also a legal name to reference
             }
-        ],
-        //noParse: [ pathToAngular ]
+        ]
     },
     plugins: PLUGINS,
-    //externals: {
-    //    'angular': 'angular'
-    //},
     sassLoader: {
         includePaths: [ bourbon.includePaths, bourbonNeat.includePaths ]
     },
