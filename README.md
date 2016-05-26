@@ -26,6 +26,7 @@ npm run dev
 - use `sass-loader` to compile style
 - use `url-loader` to load images
 - auto build `route.js` based on directory structure.
+- karma test
 
 ### Rules to follow
 
@@ -36,6 +37,10 @@ npm run dev
 ### Issues
 
 - `$urlRouterProvider.otherwise( '/' );` is not working.
+
+### Todo
+
+- add travis-ci, see http://karma-runner.github.io/0.13/plus/travis.html
 
 ### Compatibility
 
