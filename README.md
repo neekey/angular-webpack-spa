@@ -1,5 +1,7 @@
 # angular-webpack-spa
-A demo for building a SPA using Angular and build with webpack
+A demo for building a SPA using Angular and build with webpack.
+
+[Demo](http://neekey.github.io/angular-webpack-spa/build/)
 
 ### Usage
 
