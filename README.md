@@ -23,11 +23,13 @@ npm run dev
 - use `ng-annotate` to compress js
 - use `sass-loader` to compile style
 - use `url-loader` to load images
+- auto build `route.js` based on directory structure.
 
 ### Rules to follow
 
 - use `"ngInject";` whenever you need to inject independence.
 - use `registerDirective()`, `registerController()`, `registerService()`, `registerFilter()` to registerComponent
+- add `route.json` into your page directory ( like `profile/route.json` ) to customize the route configuration.
 
 ### Issues
 

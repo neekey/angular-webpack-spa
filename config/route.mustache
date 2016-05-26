@@ -4,21 +4,13 @@ module.config(function ( $futureStateProvider, $locationProvider, $urlRouterProv
     "ngInject";
 
     var futureStates = [
+    {{#states}}
         {
-            stateName: 'dashboard',
-            url: '/dashboard',
-            type: 'asyncState'
+            stateName: '{{name}}',
+            url: '{{{url}}}',
+            type: '{{type}}'
         },
-        {
-            stateName: 'home',
-            url: '/',
-            type: 'asyncState'
-        },
-        {
-            stateName: 'profile',
-            url: '/profile',
-            type: 'asyncState'
-        },
+    {{/states}}
     ];
 
     futureStates.forEach(function( futureState ){
@@ -32,15 +24,11 @@ module.config(function ( $futureStateProvider, $locationProvider, $urlRouterProv
         var d = $q.defer();
 
         switch( futureState.stateName ){
-            case 'dashboard':
-                require.ensure( [ './dashboard/index' ], function( require ){ moduleResolve( require( './dashboard/index' ) ); } );
+            {{#states}}
+            case '{{name}}':
+                require.ensure( [ './{{name}}/index' ], function( require ){ moduleResolve( require( './{{name}}/index' ) ); } );
                 break;
-            case 'home':
-                require.ensure( [ './home/index' ], function( require ){ moduleResolve( require( './home/index' ) ); } );
-                break;
-            case 'profile':
-                require.ensure( [ './profile/index' ], function( require ){ moduleResolve( require( './profile/index' ) ); } );
-                break;
+            {{/states}}
         }
 
         function moduleResolve( module ){

@@ -2,6 +2,7 @@ var path = require('path');
 var fs = require( 'fs' );
 var ENV = process.env.NODE_DEV;
 var webpack = require( 'webpack' );
+require( './route-builder' );
 var nodeModules = path.resolve(__dirname, '../node_modules');
 
 var bourbon = require( 'bourbon' );
