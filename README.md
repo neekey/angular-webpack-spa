@@ -25,6 +25,12 @@ you need to start dev server first `npm run dev`, than start karma test `npm run
 
 start a Selenium Server first by running `npm run webdriver`, also start dev server `npm run dev`. then begin test by running `npm run e2e`.
 
+#### production debug
+
+we use anyproxy as a http proxy tool to proxy online assets to local. If you want to debug production page, first start dev server, than configure `./config/anyproxy.rule.json` with your production info, after that, start the anyproxy service by `npm run debu`.
+
+after you have done all above, set up you browser or system network to proxy to anyproxy server ( defaults to localhost:8001 ).
+
 
 ### How does it work
 
@@ -36,6 +42,7 @@ start a Selenium Server first by running `npm run webdriver`, also start dev ser
 - use `url-loader` to load images
 - auto build `route.js` based on directory structure.
 - karma test
+- production debug
 
 ### Rules to follow
 
@@ -46,10 +53,6 @@ start a Selenium Server first by running `npm run webdriver`, also start dev ser
 ### Issues
 
 - `$urlRouterProvider.otherwise( '/' );` is not working.
-
-### Todo
-
-- add travis-ci, see http://karma-runner.github.io/0.13/plus/travis.html
 
 ### Compatibility
 
