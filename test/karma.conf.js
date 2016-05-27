@@ -24,7 +24,7 @@ module.exports = function (config) {
             /* the entry for test */
             'http://localhost:8080/test-launcher.js',
             /* test cases */
-            './**/*-spec.js',
+            './unit/**/*-spec.js',
             /* watch all the source files, but not load them */
             {pattern: '../app/**/*.*', included: false, served: false, watched: true}
         ],
