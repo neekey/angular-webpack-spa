@@ -1,55 +1,38 @@
+/* global angular */
+
 import module from '../module';
 
-module.registerService('Utils', function Utils() {
-
+module.registerService('Utils', () => {
     return {
-        isJSON: function( str ){
-            var ret = null;
+        isJSON: str => {
+            let ret = null;
 
             try {
-                ret = JSON.parse( str );
-            }
-            catch(e){
+                ret = JSON.parse(str);
+            } catch (e) {
                 ret = null;
             }
 
             return !!ret;
         },
 
-        /**
-         * 通过域名判断当前环境
-         */
-        getCurrentEnv: function(){
-
-            var host = location.host;
-
-            if( host == 'dip.alibaba-inc.com' ){
-                return 'production';
-            }
-            else if( host == 'dip.alibaba.net' ){
-                return 'prepub';
-            }
-            else {
-                return 'development';
-            }
+        clone(obj) {
+            return angular.fromJson(angular.toJson(obj));
         },
 
-        clone: function( obj ){
-            return angular.fromJson( angular.toJson( obj ) );
+        deepEqual(a, b) {
+            return angular.toJson(a) === angular.toJson(b);
         },
 
-        deepEqual: function( a, b ){
-            return angular.toJson( a ) === angular.toJson( b )
-        },
-
-        safeApply: function( scope, fn) {
-            var phase = scope.$root.$$phase;
-            if(phase == '$apply' || phase == '$digest') {
-                if(fn && (typeof(fn) === 'function')) { fn();
+        safeApply(scope, fn) {
+            const phase = scope.$root.$$phase;
+            if (phase === '$apply' || phase === '$digest') {
+                if (fn && (typeof(fn) === 'function')) {
+                    fn();
                 }
             } else {
                 scope.$apply(fn);
             }
-        }
-    }
+        },
+    };
 });

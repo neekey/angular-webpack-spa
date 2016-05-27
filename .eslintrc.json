@@ -1,0 +1,11 @@
+{
+    "extends": "airbnb",
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": ["error", 4],
+        "no-param-reassign": 0,
+        "arrow-body-style": ["error", "always"]
+    }
+}

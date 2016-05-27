@@ -1,9 +1,7 @@
 import module from '../module';
 
-module.registerFilter('upper', function() {
-
-    return function(input) {
+module.registerFilter('upper', () => {
+    return (input) => {
         return input.toUpperCase();
     };
-
 });

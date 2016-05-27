@@ -5,9 +5,8 @@ import './service';
 import './filter';
 import './style.scss';
 
-module.registerController( 'dashboardCtrl', function( $scope ){
-    "ngInject";
+module.registerController('dashboardCtrl', /* @ngInject */($scope) => {
     $scope.name = 'Neekey';
 });
 
-export var template = html;
+export { html as template };

@@ -1,20 +1,19 @@
 import module from '../module';
-import html from './component.html'
+import html from './component.html';
 
-module.registerDirective( 'myCom', function(){
-
+module.registerDirective('myCom', () => {
     return {
         template: html,
         restrict: 'EA',
         scope: {
-            name: '='
+            name: '=',
         },
 
-        link: function (scope) {
-            console.log( 'component name:', scope.name );
-            setTimeout(function(){
-                console.log( 'component name:', scope.name );
-            }, 1000)
-        }
-    }
+        link(scope) {
+            console.log('component name:', scope.name);
+            setTimeout(() => {
+                console.log('component name:', scope.name);
+            }, 1000);
+        },
+    };
 });

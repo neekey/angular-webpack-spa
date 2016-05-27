@@ -1,7 +1,7 @@
 import module from './pages/module';
-import './pages/dashboard'
-import './pages/home'
-import './pages/profile'
+import './pages/dashboard';
+import './pages/home';
+import './pages/profile';
 
-module.run(function () {
+module.run(() => {
 });
