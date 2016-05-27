@@ -43,6 +43,7 @@ after you have done all above, set up you browser or system network to proxy to 
 - auto build `route.js` based on directory structure.
 - karma test
 - production debug
+- ESLint integration.
 
 ### Rules to follow
 
