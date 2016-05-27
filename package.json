@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "build": "NODE_DEV=production node ./node_modules/webpack/bin/webpack --config config/webpack.config.js",
-    "dev": "NODE_DEV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server --host 0.0.0.0 --devtool eval --config config/webpack.config.js --progress --colors --hot --content-base build; node ./node_modules/karma/bin/karma start test/karma.conf.js",
+    "dev": "NODE_DEV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server --host 0.0.0.0 --devtool eval --config config/webpack.config.js --progress --colors --hot --content-base build",
     "unit": "node ./node_modules/karma/bin/karma start test/karma.conf.js",
     "webdriver": "node ./node_modules/protractor/bin/webdriver-manager start",
     "e2e": "node ./node_modules/protractor/bin/protractor test/protractor.conf.js"

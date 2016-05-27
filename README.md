@@ -5,19 +5,25 @@ A demo for building a SPA using Angular and build with webpack.
 
 ### Usage
 
-build
+#### build
 
 ```
 npm run build
 ```
 
-development, which will set up a development server and also a karma unit test watcher.
+#### development.
 
 ```
 npm run dev
 ```
 
-e2e test. start a Selenium Server first by running `npm run webdriver`, then begin test by running `npm run e2e`.
+#### unit test
+
+you need to start dev server first `npm run dev`, than start karma test `npm run unit`. after karma starts, it will keep on watching the files change.
+
+#### e2e test
+
+start a Selenium Server first by running `npm run webdriver`, also start dev server `npm run dev`. then begin test by running `npm run e2e`.
 
 
 ### How does it work
