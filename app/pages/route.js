@@ -5,64 +5,64 @@
 
 import module from './module';
 
-module.config(/* @ngInject */($futureStateProvider, $locationProvider, $urlRouterProvider) => {
-    const futureStates = [
-        {
-            stateName: 'dashboard',
+module.config(/* @ngInject */($stateProvider, $locationProvider, $urlRouterProvider) => {
+    const templates = {};
+
+    function pageHandle(pageName, pageInfo, resolve) {
+        templates[pageName] = pageInfo.template;
+        resolve();
+    }
+
+    function lazyLoadPage(pageName) {
+        return new Promise((resolve) => {
+            switch (pageName) {
+            case 'dashboard':
+                require.ensure(['./dashboard/index'], (require) => {
+                    pageHandle(pageName, require('./dashboard/index'), resolve);
+                });
+                break;
+            case 'home':
+                require.ensure(['./home/index'], (require) => {
+                    pageHandle(pageName, require('./home/index'), resolve);
+                });
+                break;
+            case 'profile':
+                require.ensure(['./profile/index'], (require) => {
+                    pageHandle(pageName, require('./profile/index'), resolve);
+                });
+                break;
+            default:
+                break;
+            }
+        });
+    }
+
+    $stateProvider
+        .state('dashboard', {
             url: '/dashboard',
-            type: 'asyncState',
-        },
-        {
-            stateName: 'home',
+            templateProvider() {
+                return templates.dashboard || 'fail to load template';
+            },
+            controller: 'dashboardCtrl',
+            resolve: { lazyLoad() { return lazyLoadPage('dashboard'); } },
+        })
+        .state('home', {
             url: '/',
-            type: 'asyncState',
-        },
-        {
-            stateName: 'profile',
+            templateProvider() {
+                return templates.home || 'fail to load template';
+            },
+            controller: 'homeCtrl',
+            resolve: { lazyLoad() { return lazyLoadPage('home'); } },
+        })
+        .state('profile', {
             url: '/profile',
-            type: 'asyncState',
-        },
-    ];
-
-    futureStates.forEach((futureState) => {
-        $futureStateProvider.futureState(futureState);
-    });
-
-    $futureStateProvider.stateFactory('asyncState', /* @ngInject */($q, futureState) => {
-        const d = $q.defer();
-
-        function moduleResolve(mod) {
-            const state = {
-                name: futureState.stateName,
-                url: futureState.url,
-                controller: `${futureState.stateName}Ctrl`,
-                template: mod.template,
-            };
-            d.resolve(state);
-        }
-
-        switch (futureState.stateName) {
-        case 'dashboard':
-            require.ensure(['./dashboard/index'], (require) => {
-                moduleResolve(require('./dashboard/index'));
-            });
-            break;
-        case 'home':
-            require.ensure(['./home/index'], (require) => {
-                moduleResolve(require('./home/index'));
-            });
-            break;
-        case 'profile':
-            require.ensure(['./profile/index'], (require) => {
-                moduleResolve(require('./profile/index'));
-            });
-            break;
-        default:
-            break;
-        }
-
-        return d.promise;
-    });
+            templateProvider() {
+                return templates.profile || 'fail to load template';
+            },
+            controller: 'profileCtrl',
+            resolve: { lazyLoad() { return lazyLoadPage('profile'); } },
+        })
+;
 
     /**
     * looks like futureState is not compatible with urlRouterProvider.otherwise

@@ -14,12 +14,10 @@ const PLUGINS = [];
 const PAGE_ENTRIES = {
     app: path.resolve(__dirname, '../app/app.js'),
     vendor: [
-        'jQuery',
-        'lodash',
+        'babel-polyfill',
         'angular',
         'angular-resource',
         'angular-ui-router',
-        'ui-router-extras',
     ],
 };
 

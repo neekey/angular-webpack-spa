@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import angular from 'angular';
 import 'angular-resource';
 import 'angular-ui-router';
@@ -6,7 +7,6 @@ import couchPotato from 'angular-delay-register';
 
 const module = angular.module('app', [
     'ui.router',
-    'ct.ui.router.extras.future',
     'scs.couch-potato',
 ]);
 

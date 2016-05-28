@@ -1,32 +1,32 @@
-var chai = require( 'chai' );
-chai.use( require( 'chai-as-promised' ) );
-var assert = chai.assert;
+/* global describe it beforeEach browser element by */
+const chai = require('chai');
+chai.use(require('chai-as-promised'));
+const assert = chai.assert;
 
-describe('Protractor Demo App', function() {
-
-    beforeEach(function(){
-        browser.get( 'http://localhost:8080' );
+describe('Protractor Demo App', () => {
+    beforeEach(() => {
+        browser.get('http://localhost:8080');
     });
 
-    it( 'default to home', function(){
+    it('default to home', () => {
         // Find by model.
-        var wrapper = element.all( by.css('.home') );
-        return assert.eventually.equal( wrapper.count(), 1);
+        const wrapper = element.all(by.css('.home'));
+        return assert.eventually.equal(wrapper.count(), 1);
     });
 
-    it( 'navigate to dashboard', function(){
+    it('navigate to dashboard', () => {
         // Find by model.
-        var dashboardEl = element.all( by.partialLinkText('dashboard' ) );
+        const dashboardEl = element.all(by.partialLinkText('dashboard'));
         dashboardEl.click();
-        var wrapper = element.all( by.css('.dashboard') );
-        return assert.eventually.equal( wrapper.count(), 1);
+        const wrapper = element.all(by.css('.dashboard'));
+        return assert.eventually.equal(wrapper.count(), 1);
     });
 
-    it( 'navigate to profile', function(){
+    it('navigate to profile', () => {
         // Find by model.
-        var dashboardEl = element.all( by.partialLinkText('profile' ) );
+        const dashboardEl = element.all(by.partialLinkText('profile'));
         dashboardEl.click();
-        var wrapper = element.all( by.css('.profile') );
-        return assert.eventually.equal( wrapper.count(), 1);
+        const wrapper = element.all(by.css('.profile'));
+        return assert.eventually.equal(wrapper.count(), 1);
     });
 });

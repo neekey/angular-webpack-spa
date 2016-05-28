@@ -34,7 +34,6 @@ after you have done all above, set up you browser or system network to proxy to 
 
 ### How does it work
 
-- use futureState to implement delayed state definition.
 - asynchronously load pages using `require.ensure()`
 - use `angular-delay-register` to implement lazy component register.
 - use `ng-annotate` to compress js
@@ -50,10 +49,6 @@ after you have done all above, set up you browser or system network to proxy to 
 - use `"ngInject";` whenever you need to inject independence.
 - use `registerDirective()`, `registerController()`, `registerService()`, `registerFilter()` to registerComponent
 - add `route.json` into your page directory ( like `profile/route.json` ) to customize the route configuration.
-
-### Issues
-
-- `$urlRouterProvider.otherwise( '/' );` is not working.
 
 ### Compatibility
 
