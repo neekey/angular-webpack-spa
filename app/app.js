@@ -1,1 +1,1 @@
-import './pages/route3';
+import './pages/route';
