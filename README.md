@@ -56,4 +56,3 @@ after you have done all above, set up you browser or system network to proxy to 
 - Chrome
 - Safari
 - Firefox
-
